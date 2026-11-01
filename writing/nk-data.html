@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NK Data · Imran</title>
 <meta name="description" content="Sensitive data discovery and retention mapping that classifies documents on hardware the owner controls.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NK Data · Imran">
+<meta property="og:description" content="Sensitive data discovery and retention mapping that classifies documents on hardware the owner controls.">
+<meta property="og:url" content="https://techguardcoder.github.io/writing/nk-data.html">
+<meta property="og:image" content="https://techguardcoder.github.io/assets/portrait.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="stylesheet" href="../style.css">
@@ -17,10 +23,10 @@
 <h1>NK Data</h1>
 <p class="meta">2026 · installing</p>
 
-<h3>Problem</h3>
+<h2>Problem</h2>
 <p>Organizations hold documents with personal and health data they do not know about, and they often keep them past the retention period. Sending those documents to a cloud classifier would expose the very data the scan is meant to protect. Pattern based DLP finds a Social Security number but misses the contextual cases.</p>
 
-<h3>What I built</h3>
+<h2>What I built</h2>
 <ul>
 <li>One command walks a directory and runs each document through three layers of local models.</li>
 <li>The first layer finds fixed format identifiers, such as Social Security and card numbers.</li>

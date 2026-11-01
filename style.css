@@ -41,9 +41,9 @@ h2 { display:flex; align-items:center; gap:.9rem; font:600 .85rem var(--mono); l
   margin:2.75rem 0 1rem; }
 h2::before, h2::after { content:""; flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--rule-strong)); }
 h2::after { background:linear-gradient(90deg, var(--rule-strong), transparent); }
-h3 { font-size:.8rem; font-family:var(--mono); font-weight:600; letter-spacing:.22em; text-transform:uppercase;
-  color:var(--muted); margin:2.25rem 0 .6rem; display:flex; align-items:center; gap:.6rem; }
-h3::before { content:""; width:7px; height:7px; border:1px solid var(--rule-strong); transform:rotate(45deg); flex:none; }
+article h2 { font-size:.8rem; letter-spacing:.22em; text-transform:uppercase; margin:2.25rem 0 .6rem; gap:.6rem; }
+article h2::before { content:""; flex:none; width:7px; height:7px; background:none; border:1px solid var(--rule-strong); transform:rotate(45deg); }
+article h2::after { content:none; }
 
 /* Index header: the portrait as a medallion with rays behind it */
 .hero { text-align:center; margin-bottom:1.75rem; }
