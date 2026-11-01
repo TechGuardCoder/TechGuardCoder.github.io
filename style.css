@@ -55,6 +55,7 @@ h3::before { content:""; width:7px; height:7px; border:1px solid var(--rule-stro
   border:1px solid var(--rule-strong); box-shadow:0 0 0 5px var(--panel), 0 0 0 6px var(--rule-strong); }
 .binary { font:.75rem var(--mono); letter-spacing:.35em; color:var(--muted); margin:0; }
 .intro { text-align:center; text-wrap:balance; }
+.certs { font:600 .8rem var(--mono); letter-spacing:.22em; text-align:center; margin:-.25rem 0 1rem; }
 .contact { font-family:var(--mono); font-size:.85rem; text-align:center; color:var(--muted); }
 
 /* Projects as a constellation: one node per row on a single line */
