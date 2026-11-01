@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NK Node · Imran Afridi</title>
+<meta name="description" content="A self hosted security operations appliance where agents propose fixes, people approve them, and scan data stays on the machine.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="frame">
+<div class="band" aria-hidden="true"><i></i><b></b><i></i></div>
+<article>
+<a class="back" href="../">&larr; Imran Afridi</a>
+<h1>NK Node</h1>
+<p class="meta">2026 · Tech Guard · <a href="https://nknode.com">nknode.com</a></p>
+
+<h3>Problem</h3>
+<p>Small organizations need to see what they run, find what is exposed, and fix it, without a security team. Their scan results are a map of their weaknesses, so that data should stay on their own machine. An agent that can change systems is a new attack surface of its own.</p>
+
+<h3>What I built</h3>
+<ul>
+<li>A self hosted appliance for Linux, macOS and Windows. It inventories devices, servers, websites, cloud accounts and code repositories, with the software and versions each one runs.</li>
+<li>Network scans, web app scans against the OWASP Top 10, and code scanning for vulnerable dependencies, code issues and leaked keys, matched against CVE feeds, CISA KEV and EPSS.</li>
+<li>A SIEM over syslog, endpoint and router logs, with detection rules and an alert queue.</li>
+<li>Hermes as the orchestration layer. Agents triage alerts, hunt, and propose fixes. Hermes reasons; NK Node decides.</li>
+</ul>
+
+<h3>Security decisions</h3>
+<ul>
+<li><strong>Scan data never leaves the appliance.</strong> Vulnerability matching runs against local copies of OSV, the CVE List, KEV and EPSS. What the appliance downloads is the same whatever the inventory holds, and the tests fail on any network call.</li>
+<li><strong>Agents ask first by default.</strong> Every feature where an agent changes something is set to off, ask first, or automatic. Automatic needs an admin and the organization's name typed. One switch pauses all of it, and everything done without a person is logged and announced.</li>
+<li><strong>Each agent gets the least it needs.</strong> MCP tool profiles scope each client. The built in assistant only reads. The engineering bots get vulnerability advice and nothing about the site's hosts, logs or alerts.</li>
+<li><strong>Leaked keys are cleared without being kept.</strong> A leaked key becomes a pull request that removes it, a revocation or rotation step, and an optional history purge. Each step asks first. The value is never stored, logged, or sent to the model.</li>
+<li><strong>An outside test, then fixes.</strong> A test report on October 26 found six issues, including SSRF in website checks, trusted forwarding headers that could be forged, a known default admin password, and no CSP. All six were fixed and merged two days later.</li>
+<li><strong>The tradeoff:</strong> local matching means downloading about 1.1 GB of OSV exports and keeping them in sync, instead of asking an API. I chose the disk and bandwidth over sending a list of a client's vulnerable software to a third party.</li>
+</ul>
+
+<h3>Result</h3>
+<p>NK Node runs on Tech Guard's network. A public release is in preparation: the release candidate installs with one command that checks release checksums, from a pipeline with a hashed dependency lock.</p>
+
+<p class="muted"><strong>Next:</strong> hardening under review, including role checks on containment approval, fencing outside text in agent prompts, and a hash chained audit log.</p>
+</article>
+<div class="band" aria-hidden="true"><i></i><b></b><i></i></div>
+</div>
+</body>
+</html>
